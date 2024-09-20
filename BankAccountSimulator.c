@@ -26,10 +26,24 @@ void deposit(struct Account *account, float amount)
     if (amount > 0)
     {
         account->balance += amount;
-        printf("Successfully deposited $%.2f. New balance $%.2f\n", amount, account->balance);
+        printf("Successfully deposited $%.2f. New balance: $%.2f\n", amount, account->balance);
     }
     else 
     {
         printf("Invalid deposit amount.\n");
+    }
+}
+
+// Withdrawing Money
+void withdraw(struct Account *account, float amount)
+{
+    if (amount > 0 && amount <= account->balance)
+    {
+        account->balance -= amount;
+        printf("Successfully withdrew $%.2f. New balance: $%.2f\n", amount, account->balance);
+    }
+    else 
+    {
+        printf("Invalid withdrawal amount or insufficient funds.\n");
     }
 }
