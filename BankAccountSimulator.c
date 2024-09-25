@@ -53,7 +53,7 @@ void checkBalance(struct Account account)
 {
     printf("Account Number: %d\n", account.accountNumber);
     printf("Account Holder: %s\n", account.name);
-    printf("Current Balance: $.2f\n", account.balance);
+    printf("Current Balance: $%.2f\n", account.balance);
 }
 
 void displayMenu() 
