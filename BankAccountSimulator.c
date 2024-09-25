@@ -139,7 +139,7 @@ int main() {
             printf("Thank you for using the Bank Account Simulator. Goodbye!\n");
             exit(0);
         default:
-            printf("Invalid choice. Please try afain.\n");
+            printf("Invalid choice. Please try again.\n");
             break;
         }
     }
