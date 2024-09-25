@@ -47,3 +47,23 @@ void withdraw(struct Account *account, float amount)
         printf("Invalid withdrawal amount or insufficient funds.\n");
     }
 }
+
+// Checking Balance
+void checkBalance(struct Account account)
+{
+    printf("Account Number: %d\n", account.accountNumber);
+    printf("Account Holder: %s\n", account.name);
+    printf("Current Balance: $.2f\n", account.balance);
+}
+
+void displayMenu() 
+{
+    printf("\n=== Bank Account Simulator ===\n");
+    printf("1. Create Account\n");
+    printf("2. Deposit Money\n");
+    printf("3. Withdraw Money\n");
+    printf("4. Check Balance\n");
+    printf("5. Exit\n");
+    printf("Enter your choice: ");
+}
+
