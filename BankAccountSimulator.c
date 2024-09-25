@@ -67,3 +67,82 @@ void displayMenu()
     printf("Enter your choice: ");
 }
 
+int main() {
+    struct Account account;
+    int choice;
+    int accountCreated = 0;
+    int accountNumber;
+    char name[100];
+    float amount;
+
+    while (1) {
+        displayMenu();
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            if (accountCreated)
+            {
+                printf("Account already created.\n");
+            }
+            else
+            {
+                printf("Enter Account Number: ");
+                scanf("%d", &accountNumber);
+                printf("Enter Account Holder Name: ");
+                getchar(); // To consume the newline character left by previous scanf
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = 0; // Remove newline character
+                printf("Enter Initial Deposit: ");
+                scanf("%f", &amount);
+                account = creatAccount(accountNumber, name, amount);
+                accountCreated = 1;
+                printf("Account created successfully!\n");
+            }
+            break;
+        case 2:
+            if (accountCreated) 
+            {
+                printf("Enter amount to deposit: ");
+                scanf("%f", &amount);
+                deposit(&account, amount);
+            }
+            else
+            {
+                printf("Please create an account first.\n");
+            }
+            break;
+        case 3:
+            if (accountCreated) 
+            {
+                printf("Enter amount to withdraw: ");
+                scanf("%f", &amount);
+                withdraw(&account, amount);
+            }
+            else
+            {
+                printf("Please create an account first.\n");
+            }
+            break;
+        case 4:
+            if (accountCreated) 
+            {
+                checkBalance(account);
+            }
+            else
+            {
+                printf("Please create an account first.\n");
+            }
+            break;
+        case 5:
+            printf("Thank you for using the Bank Account Simulator. Goodbye!\n");
+            exit(0);
+        default:
+            printf("Invalid choice. Please try afain.\n");
+            break;
+        }
+    }
+
+    return 0;
+}
